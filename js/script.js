@@ -1,8 +1,24 @@
+
+Conversation opened. 1 read message.
+
+Skip to content
+Using Gmail with screen readers
+Enable desktop notifications for Gmail.
+   OK  No thanks
+3 of 1,782
+JS correction- remove = from click event
+Inbox
+
+Mallory Buchyn <buchynmb@gmail.com>
+12:31 PM (3 hours ago)
+to me
+
 const lettersGuessed = document.querySelector(".guessed-letters")
 const guessButton = document.querySelector(".guess");
 const letterInput = document.querySelector(".letter");
 const wordInProgress = document.querySelector(".word-in-progress");
-const remainingGuesses = document.querySelector(".remaining span");
+const remainingGuessesElement = document.querySelector(".remaining");
+const remainingGuessesSpan = document.querySelector(".remaining span");
 const message = document.querySelector(".message");
 const playAgain = document.querySelector(".play-again");
 
@@ -12,7 +28,7 @@ const guessedLetters = [];
 
 const placeholder = function (word) {
     const placeholderLetters = [];
-    for (const letter of word ) {
+    for (const letter of word) {
         console.log(letter);
         placeholderLetters.push("●");
     }
@@ -21,19 +37,16 @@ const placeholder = function (word) {
 
 placeholder(word);
 
-
-guessButton.addEventListener = ("click", function (e) {
+guessButton.addEventListener("click", function (e) {
     e.preventDefault ();
     message.innerText = "";
     const guess = letterInput.value;
 
     const goodGuess = validatePlayerInput(guess);
-    
-    
+   
     if (goodGuess) {
         makeGuess(guess);
     }
-
     letterInput.value = "";
 });
 
@@ -58,7 +71,7 @@ const makeGuess = function (guess) {
         guessedLetters.push(guess);
         console.log(guessedLetters);
         playerGuesses();
-
+updateWordInProgress(guessedLetters);
     }
 };
 
@@ -66,6 +79,7 @@ const playerGuesses = function () {
     lettersGuessed.innerHTML = "";
     for (const letter of guessedLetters) {
         const li = document.createElement("li");
+li.innerText = letter;
         lettersGuessed.append(li);
     }
 };
@@ -81,7 +95,7 @@ const updateWordInProgress = function (guessedLetters) {
             unveilWord.push("●");
         }
     }
-    console.log(unveilWord);
+    // console.log(unveilWord);
     wordInProgress.innerText = unveilWord.join("");
 
     checkIfWin();
@@ -93,4 +107,5 @@ const checkIfWin = function () {
         message.innerHTML = `<p class="highlight">You guessed the word correctly! Congratulations!</p>`;
 
     }
-}
+};
+
