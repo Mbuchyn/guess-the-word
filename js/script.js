@@ -22,16 +22,18 @@ const getWord = async function () {
     placeholder(word);
 };
 
+getWord();
+
+
 const placeholder = function (word) {
     const placeholderLetters = [];
     for (const letter of word) {
-        console.log(letter);
+        //console.log(letter);
         placeholderLetters.push("●");
     }
     wordInProgress.innerText = placeholderLetters.join("");
 };
 
-getWord();
 
 guessButton.addEventListener("click", function (e) {
     e.preventDefault ();
@@ -66,6 +68,7 @@ const makeGuess = function (guess) {
     } else {
         guessedLetters.push(guess);
         console.log(guessedLetters);
+        updateGuessesRemaining(guess);
         playerGuesses();
     updateWordInProgress(guessedLetters);
     }
