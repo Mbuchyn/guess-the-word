@@ -8,7 +8,7 @@ const message = document.querySelector(".message");
 const playAgain = document.querySelector(".play-again");
 
 
-const word = "magnolia";
+let word = "magnolia";
 const guessedLetters = [];
 
 let remainingGuesses = 8;
