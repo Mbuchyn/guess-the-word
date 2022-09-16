@@ -1,11 +1,11 @@
-const lettersGuessed = document.querySelector(".guessed-letters");
+const guessedLettersElement = document.querySelector(".guessed-letters");
 const guessButton = document.querySelector(".guess");
 const letterInput = document.querySelector(".letter");
 const wordInProgress = document.querySelector(".word-in-progress");
 const remainingGuessesElement = document.querySelector(".remaining");
 const remainingGuessesSpan = document.querySelector(".remaining span");
 const message = document.querySelector(".message");
-const playAgain = document.querySelector(".play-again");
+const playAgainButton = document.querySelector(".play-again");
 
 
 let word = "magnolia";
@@ -75,11 +75,11 @@ const makeGuess = function (guess) {
 };
 
 const playerGuesses = function () {
-    lettersGuessed.innerHTML = "";
+    guessedLettersElement.innerHTML = "";
     for (const letter of guessedLetters) {
         const li = document.createElement("li");
 li.innerText = letter;
-        lettersGuessed.append(li);
+        guessedLettersElement.append(li);
     }
 };
 
@@ -99,6 +99,7 @@ const updateWordInProgress = function (guessedLetters) {
 
     checkIfWin();
 };
+
 
 const updateRemainingGuesses = function (guess) {
     const upperCaseWord = word.toUpperCase();
