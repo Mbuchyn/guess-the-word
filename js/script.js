@@ -36,7 +36,7 @@ const placeholder = function (word) {
 
 
 guessButton.addEventListener("click", function (e) {
-    e.preventDefault ();
+    e.preventDefault();
     message.innerText = "";
     const guess = letterInput.value;
 
@@ -53,9 +53,9 @@ const validatePlayerInput = function (input) {
     if (input.length === 0) {
         message.innerText = "Oops! Please enter a letter.";
     } else if (input.length > 1) {
-        message.innerText = "Oops! Please enter only 1 letter."
+        message.innerText = "Oops! Please enter only 1 letter.";
     } else if (!input.match(acceptedLetter)) {
-        message.innerText = "Oops! Please enter one letter from A-Z."
+        message.innerText = "Oops! Please enter one letter from A-Z.";
     } else {
         return input;
     }
@@ -68,7 +68,7 @@ const makeGuess = function (guess) {
     } else {
         guessedLetters.push(guess);
         console.log(guessedLetters);
-        updateGuessesRemaining(guess);
+        updateRemainingGuesses(guess);
         playerGuesses();
     updateWordInProgress(guessedLetters);
     }
