@@ -104,7 +104,7 @@ const updateWordInProgress = function (guessedLetters) {
 const updateRemainingGuesses = function (guess) {
     const upperCaseWord = word.toUpperCase();
     if (!upperCaseWord.includes(guess)) {
-        message.innerText = `Sorry, the word has no letter ${guess}s.`;
+        message.innerText = `Sorry, the word has no letter ${guess}.`;
         remainingGuesses -= 1;
     } else {
         message.innerText = `Yay! The word has the letter ${guess}`;
@@ -113,10 +113,10 @@ const updateRemainingGuesses = function (guess) {
     if (remainingGuesses === 0) {
         message.innerHTML= `GAME OVER. The word was  <span class="highlight">${word}</span>.`;
     } else if (remainingGuesses === 1) {
-        remainingGuessesSpan.innerText = `${remainingGuesses}!`;
+        remainingGuessesSpan.innerText = `${remainingGuesses} guess`;
 
     } else {
-        remainingGuessesSpan.innerText = `Guesses left: ${remainingGuesses}`;
+        remainingGuessesSpan.innerText = `${remainingGuesses} guesses`;
     }
 };
 
@@ -124,6 +124,6 @@ const updateRemainingGuesses = function (guess) {
 const checkIfWin = function () {
     if (word.toUpperCase() === wordInProgress.innerText) {
       message.classList.add("win");
-      message.innerHTML = `<p class="highlight">You guessed the correct word! Congrats!</p>`;
+      message.innerHTML = `<p class="highlight">You guessed the word! Congrats!</p>`;
     }
   };
