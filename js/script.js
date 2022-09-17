@@ -1,6 +1,7 @@
 const guessedLettersElement = document.querySelector(".guessed-letters");
 const guessButton = document.querySelector(".guess");
 const letterInput = document.querySelector(".letter");
+const form = document.querySelector(".guess-form");
 const wordInProgress = document.querySelector(".word-in-progress");
 const remainingGuessesElement = document.querySelector(".remaining");
 const remainingGuessesSpan = document.querySelector(".remaining span");
@@ -136,6 +137,8 @@ const checkIfWin = function () {
     guessButton.classList.add("hide");
     remainingGuessesElement.classList.add("hide");
     guessedLettersElement.classList.add("hide");
+    letterInput.classList.add("hide");
+    form.classList.add("hide");
     playAgainButton.classList.remove("hide");
   };
 
@@ -154,5 +157,7 @@ playAgainButton.addEventListener("click", function () {
     guessButton.classList.remove("hide");
     remainingGuessesElement.classList.remove("hide");
     guessedLettersElement.classList.remove("hide");
+    letterInput.classList.remove("hide");
+    form.classList.remove("hide");
     playAgainButton.classList.add("hide");
 });
